@@ -1,0 +1,115 @@
+html{
+    height:100%;
+}
+
+body{
+    background: linear-gradient(to bottom right, skyblue, white);
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    font: Verdana, Geneva, sans-serif;
+
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(11,1fr);
+    grid-template-rows: repeat(11, 1fr);
+}
+
+.titleBar{
+    grid-row: 1;
+    grid-column: 1/12;
+    display: block;
+    padding: 8px;
+    background-color: navy;
+}
+
+.title{
+    color: white ;
+    font-size: 25px;
+    grid-row: 1;
+    font-weight: bold;
+    justify-self: center;
+}
+.madeBy{
+    color: white;
+    align-self: flex-end;
+    font-size: 10px;
+}
+
+
+button{
+    background-color: navy;
+    color: whitesmoke;
+    grid-row: 8;
+    width: 100px;
+    height: 30px;
+    align-self: center;
+    justify-self: center;
+    font-size: medium;
+    border-radius: 7px;
+    border: none;
+}
+
+#rock{
+    grid-column: 4;
+}
+
+#paper{
+    grid-column: 6;
+}
+
+#scissors{
+    grid-column: 8;
+}
+
+#you{
+    grid-row: 3;
+    grid-column: 4;
+    align-self: center;
+    justify-self: center;
+    color: navy;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#computer{
+    grid-row: 3;
+    grid-column: 8;
+    align-self: center;
+    justify-self: center;
+    color: navy;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#playerScore{
+    grid-row: 5;
+    grid-column: 4;
+    align-self: center;
+    justify-self: center;
+    color: navy;
+    font-size: xx-large;
+    font-weight: bold;
+}
+#vs{
+    grid-row: 5;
+    grid-column: 6;
+    align-self: center;
+    justify-self: center;
+    color: navy;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#computerScore{
+    grid-row: 5;
+    grid-column: 8;
+    align-self: center;
+    justify-self: center;
+    color: navy;
+    font-size: xx-large;
+    font-weight: bold;
+
+}
