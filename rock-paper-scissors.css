@@ -7,7 +7,8 @@ body{
     background-repeat: no-repeat;
     height: 100%;
     margin: 0;
-    font: Verdana, Geneva, sans-serif;
+    font-family: Verdana, Geneva, sans-serif;
+
 
 }
 
@@ -22,7 +23,7 @@ body{
     grid-column: 1/12;
     display: block;
     padding: 8px;
-    background-color: navy;
+    background-color:#0d0e55;
 }
 
 .title{
@@ -40,7 +41,7 @@ body{
 
 
 button{
-    background-color: navy;
+    background-color: #0d0e55;
     color: whitesmoke;
     grid-row: 8;
     width: 100px;
@@ -69,7 +70,7 @@ button{
     grid-column: 4;
     align-self: center;
     justify-self: center;
-    color: navy;
+    color: #0d0e55;
     font-size: xx-large;
     font-weight: bold;
 }
@@ -79,7 +80,7 @@ button{
     grid-column: 8;
     align-self: center;
     justify-self: center;
-    color: navy;
+    color:#0d0e55;
     font-size: xx-large;
     font-weight: bold;
 }
@@ -89,7 +90,7 @@ button{
     grid-column: 4;
     align-self: center;
     justify-self: center;
-    color: navy;
+    color: #0d0e55;
     font-size: xx-large;
     font-weight: bold;
 }
@@ -98,7 +99,7 @@ button{
     grid-column: 6;
     align-self: center;
     justify-self: center;
-    color: navy;
+    color: #0d0e55;
     font-size: xx-large;
     font-weight: bold;
 }
@@ -108,8 +109,49 @@ button{
     grid-column: 8;
     align-self: center;
     justify-self: center;
+    color: #0d0e55;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#message{
+    grid-row: 10;
+    grid-column: 4/9;
+    align-self: center;
+    justify-self: center;
+    color: #0d0e55;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+#playerChoice{
+    grid-row: 5;
+    grid-column: 5/6;
+    align-self: center;
+    justify-self: center;
+    align-self: center;
+    justify-self: center;
+    height: 75px;
+    width: 100px;
+}
+
+/* #computerChoice{
+    grid-row: 5;
+    grid-column: 7/8;
+    align-self: center;
+    justify-self: center;
+    text-transform: capitalize;
     color: navy;
     font-size: xx-large;
     font-weight: bold;
+} */
+
+#computerChoice{
+    grid-row: 5;
+    grid-column: 7/8;
+    align-self: center;
+    justify-self: center;
+    height: 75px;
+    width: 100px;
 
 }

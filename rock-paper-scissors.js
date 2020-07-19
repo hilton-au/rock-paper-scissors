@@ -1,53 +1,58 @@
-let rockPaperScissors = [`Rock`, `Paper`, `Scissors`];
+let rockPaperScissors = [`rock`, `paper`, `scissors`];
 let playerScore = 0;
 let computerScore = 0;
+let message = ``;
 
 function computerPlay(){
-    return rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)];
+    document.getElementById('computerChoice').src='';
+    computerChoice = rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)];
+    if (computerChoice == `rock`){
+        document.getElementById('computerChoice').src='computer-rock.png';
+        return computerChoice;
+    }
+    else if (computerChoice == `paper`){
+        document.getElementById('computerChoice').src='computer-paper.png';
+        return computerChoice;
+    }
+    else {
+        document.getElementById('computerChoice').src='computer-scissors.png';
+        return computerChoice;
+    }
 }
 
 function playRound(playerSelection, computerSelection){
-    console.log(computerSelection);
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
     switch (playerSelection) {
         case `rock`:
             if (computerSelection == `scissors`){
                 playerScore += 1;
-                console.log(`You win the round!`);
+                message =`You win the round!`;
             } else if (computerSelection == `paper`){
                 computerScore += 1;
-                console.log(`You lose the round!`);
+                message =`You lose the round!`;
             } else {
-                playerScore += 1;
-                computerScore += 1;
-                console.log(`It's a tie round!`);
+                message = `It's a tie round!`;
             }
         break;
         case `paper`:
             if (computerSelection == `rock`){
                 playerScore += 1;
-                console.log(`You win the round!`);
+                message =`You win the round!`;
             } else if (computerSelection == `scissors`){
                 computerScore += 1;
-                console.log(`You lose the round!`);
+                message =`You lose the round!`;
             } else {
-                playerScore += 1;
-                computerScore += 1;
-                console.log(`It's a tie round!`);
+                message = `It's a tie round!`;
             }
         break;
         case `scissors`:
             if (computerSelection == `paper`){
                 playerScore += 1;
-                console.log(`You win the round!`);
+                message =`You win the round!`;
             } else if (computerSelection == `rock`){
                 computerScore += 1;
-                console.log(`You lose the round!`);
+                message =`You lose the round!`;
             } else {
-                playerScore += 1;
-                computerScore += 1;
-                console.log(`It's a tie round!`);
+                message = `It's a tie round!`;
             }
         break;
         default:
@@ -58,32 +63,39 @@ function playRound(playerSelection, computerSelection){
 
 function gameResult(){
     if (playerScore == computerScore){
-        console.log(`Your Score: `+ playerScore);
-        console.log(`Computer Score: ` + computerScore);
-        console.log(`It's a tie game!`+ ` The score was ` + playerScore + `-` + computerScore + `.`);
+        message = `Game Over! It's a tie!`+ ` The score is ` + playerScore + `-` + computerScore + `.`;
     }else if (playerScore > computerScore) {
-        console.log(`Your Score: `+ playerScore);
-        console.log(`Computer Score: ` + computerScore);
-        console.log(`You win the game!` + ` The score was ` + playerScore + `-` + computerScore + `.` );
+        message = `Game Over! You win!` + ` The score is ` + playerScore + `-` + computerScore + `.` ;
     }
     else {
-        console.log(`Your Score: `+ playerScore);
-        console.log(`Computer Score: ` + computerScore);
-        console.log(`You lose the game!`  + ` The score was ` + playerScore + `-` + computerScore + `.`);
+        message = `Game Over! You lose!`  + ` The score is ` + playerScore + `-` + computerScore + `.`;
     }
 }
 
 
 document.getElementById("playerScore").innerHTML = playerScore;
 document.getElementById("computerScore").innerHTML = computerScore;
+document.getElementById("message").innerHTML = message;
 
-const rock = document.querySelector(`#rock`);
 
-rock.addEventListener(`click`,() => {
-    playRound(playerSelection=`Rock`, computerPlay());
-    document.getElementById("playerScore").innerHTML = playerScore;
-    document.getElementById("computerScore").innerHTML = computerScore;
-    if (playerScore >= 5 || computerScore >=5){
-        console.log(gameResult());
-    }
+const choice = `.choice`;
+const choices = document.querySelectorAll(choice);
+
+choices.forEach((choice) => {
+    choice.addEventListener(`click`,() => {
+        playRound(playerSelection=event.srcElement.id, computerPlay());
+        document.getElementById('playerChoice').src='player-' + event.srcElement.id + `.png`;
+        document.getElementById("playerScore").innerHTML = playerScore;
+        document.getElementById("computerScore").innerHTML = computerScore;
+        document.getElementById("message").innerHTML = message;
+        if (playerScore >= 5 || computerScore >=5){
+            gameResult();
+            document.getElementById("playerScore").innerHTML = playerScore;
+            document.getElementById("computerScore").innerHTML = computerScore;
+            document.getElementById("message").innerHTML = message;
+            playerScore = 0;
+            computerScore = 0;
+        }
+    });
+
 });
