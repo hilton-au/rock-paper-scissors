@@ -19,24 +19,29 @@ body{
 }
 
 .titleBar{
+    display: inline-grid;
+    grid-template-columns: repeat(11,1fr);
     grid-row: 1;
     grid-column: 1/12;
-    display: block;
     padding: 8px;
     background-color:#0d0e55;
 }
 
 .title{
+    grid-column: 3/10;
     color: white ;
-    font-size: 25px;
-    grid-row: 1;
+    font-size: 37px;
     font-weight: bold;
     justify-self: center;
+    align-self: center;
 }
+
 .madeBy{
-    color: white;
+    color: #0d0e55;
     align-self: flex-end;
     font-size: 10px;
+    grid-row: 11;
+    grid-column: 11;
 }
 
 
@@ -51,6 +56,13 @@ button{
     font-size: medium;
     border-radius: 7px;
     border: none;
+}
+
+button:hover{
+    color: #0d0e55;
+    background-color: whitesmoke;
+    border-style: solid;
+    border-color: #0d0e55;
 }
 
 #rock{
@@ -134,17 +146,6 @@ button{
     height: 75px;
     width: 100px;
 }
-
-/* #computerChoice{
-    grid-row: 5;
-    grid-column: 7/8;
-    align-self: center;
-    justify-self: center;
-    text-transform: capitalize;
-    color: navy;
-    font-size: xx-large;
-    font-weight: bold;
-} */
 
 #computerChoice{
     grid-row: 5;
