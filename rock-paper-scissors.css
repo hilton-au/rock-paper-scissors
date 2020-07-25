@@ -19,16 +19,12 @@ body{
 }
 
 .titleBar{
-    display: inline-grid;
-    grid-template-columns: repeat(11,1fr);
-    grid-row: 1;
-    grid-column: 1/12;
+    display: grid;
     padding: 0px;
     background-color:#0d0e55;
 }
 
 .title{
-    grid-column: 3/10;
     color: white ;
     font-size: 30px;
     font-weight: bold;

@@ -1,22 +1,26 @@
 let rockPaperScissors = [`rock`, `paper`, `scissors`];
-let playerScore = 0;
-let computerScore = 0;
-let message = ``;
+let playerScore = document.getElementById("playerScore");
+let computerScore = document.getElementById("computerScore");
+let message = document.getElementById("message");
+let currentPlayerScore = 0;
+let currentComputerScore = 0;
+let currentMessage = ``;
+
 
 function computerPlay(){
-    document.getElementById('computerChoice').src='';
-    computerChoice = rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)];
-    if (computerChoice == `rock`){
-        document.getElementById('computerChoice').src='computer-rock.png';
-        return computerChoice;
+    let computerSelection = rockPaperScissors[Math.floor(Math.random() * rockPaperScissors.length)];
+    let computerChoice = document.getElementById('computerChoice');
+    if (computerSelection == `rock`){
+        computerChoice.src='computer-rock.png';
+        return computerSelection;
     }
-    else if (computerChoice == `paper`){
-        document.getElementById('computerChoice').src='computer-paper.png';
-        return computerChoice;
+    else if (computerSelection == `paper`){
+        computerChoice.src='computer-paper.png';
+        return computerSelection;
     }
     else {
-        document.getElementById('computerChoice').src='computer-scissors.png';
-        return computerChoice;
+        computerChoice.src='computer-scissors.png';
+        return computerSelection;
     }
 }
 
@@ -24,35 +28,35 @@ function playRound(playerSelection, computerSelection){
     switch (playerSelection) {
         case `rock`:
             if (computerSelection == `scissors`){
-                playerScore += 1;
-                message =`You win the round!`;
+                currentPlayerScore += 1;
+                currentMessage =`You win the round!`;
             } else if (computerSelection == `paper`){
-                computerScore += 1;
-                message =`You lose the round!`;
+                currentComputerScore += 1;
+                currentMessage =`You lose the round!`;
             } else {
-                message = `It's a tie round!`;
+                currentMessage = `It's a tie round!`;
             }
         break;
         case `paper`:
             if (computerSelection == `rock`){
-                playerScore += 1;
-                message =`You win the round!`;
+                currentPlayerScore += 1;
+                currentMessage =`You win the round!`;
             } else if (computerSelection == `scissors`){
-                computerScore += 1;
-                message =`You lose the round!`;
+                currentComputerScore += 1;
+                currentMessage =`You lose the round!`;
             } else {
-                message = `It's a tie round!`;
+                currentMessage = `It's a tie round!`;
             }
         break;
         case `scissors`:
             if (computerSelection == `paper`){
-                playerScore += 1;
-                message =`You win the round!`;
+                currentPlayerScore += 1;
+                currentMessage =`You win the round!`;
             } else if (computerSelection == `rock`){
-                computerScore += 1;
-                message =`You lose the round!`;
+                currentComputerScore += 1;
+                currentMessage =`You lose the round!`;
             } else {
-                message = `It's a tie round!`;
+                currentMessage = `It's a tie round!`;
             }
         break;
         default:
@@ -62,20 +66,20 @@ function playRound(playerSelection, computerSelection){
 
 
 function gameResult(){
-    if (playerScore == computerScore){
-        message = `Game Over! It's a tie!`+ ` The score is ` + playerScore + `-` + computerScore + `.`;
-    }else if (playerScore > computerScore) {
-        message = `Game Over! You win!` + ` The score is ` + playerScore + `-` + computerScore + `.` ;
+    if (currentPlayerScore == currentComputerScore){
+        currentMessage = `Game Over! It's a tie!`+ ` The score is ` + currentPlayerScore + `-` + currentComputerScore + `.`;
+    }else if (currentPlayerScore > currentComputerScore) {
+        currentMessage = `Game Over! You win!` + ` The score is ` + currentPlayerScore + `-` + currentComputerScore + `.` ;
     }
     else {
-        message = `Game Over! You lose!`  + ` The score is ` + playerScore + `-` + computerScore + `.`;
+        currentMessage = `Game Over! You lose!`  + ` The score is ` + currentPlayerScore + `-` + currentComputerScore + `.`;
     }
 }
 
 
-document.getElementById("playerScore").innerHTML = playerScore;
-document.getElementById("computerScore").innerHTML = computerScore;
-document.getElementById("message").innerHTML = message;
+playerScore.innerHTML = currentPlayerScore;
+computerScore.innerHTML = currentComputerScore;
+message.innerHTML = currentMessage;
 
 
 const choice = `.choice`;
@@ -85,16 +89,16 @@ choices.forEach((choice) => {
     choice.addEventListener(`click`,() => {
         playRound(playerSelection=event.srcElement.id, computerPlay());
         document.getElementById('playerChoice').src='player-' + event.srcElement.id + `.png`;
-        document.getElementById("playerScore").innerHTML = playerScore;
-        document.getElementById("computerScore").innerHTML = computerScore;
-        document.getElementById("message").innerHTML = message;
-        if (playerScore >= 5 || computerScore >=5){
+        playerScore.innerHTML = currentPlayerScore;
+        computerScore.innerHTML = currentComputerScore;
+        message.innerHTML = currentMessage;
+        if (currentPlayerScore >= 5 || currentComputerScore >=5){
             gameResult();
-            document.getElementById("playerScore").innerHTML = playerScore;
-            document.getElementById("computerScore").innerHTML = computerScore;
-            document.getElementById("message").innerHTML = message;
-            playerScore = 0;
-            computerScore = 0;
+            playerScore.innerHTML = currentPlayerScore;
+            computerScore.innerHTML = currentComputerScore;
+            message.innerHTML = currentMessage;
+            currentPlayerScore = 0;
+            currentComputerScore = 0;
         }
     });
 
