@@ -79,7 +79,7 @@ function gameResult(){
 
 playerScore.innerHTML = currentPlayerScore;
 computerScore.innerHTML = currentComputerScore;
-message.innerHTML = currentMessage;
+message.innerHTML = "Choose rock, paper, scissors to start the game!";
 
 
 const choice = `.choice`;
