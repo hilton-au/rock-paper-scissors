@@ -1,15 +1,10 @@
-html{
-    min-height:100vh;
-    margin: 0;
-}
-
-body{
+body, html{
     background: linear-gradient(to bottom right, skyblue, white);
     background-repeat: no-repeat;
     min-height: 100vh;
     margin: 0;
-    font-family: Verdana, Geneva, sans-serif;
-
+    font-family: 'Grandstander';
+    overflow: hidden;
 }
 
 .container{
@@ -21,11 +16,10 @@ body{
 .titleBar{
     display: grid;
     padding: 0px;
-    /* background-color:#0d0e55; */
 }
 
 .title{
-    font-family: 'Lobster';
+    font-family: 'Grandstander';
     color: #0d0e55;
     font-size: 50px;
     font-weight: bold;
@@ -33,15 +27,6 @@ body{
     align-self: center;
 }
 
-.madeBy{
-    color: #0d0e55;
-    align-self: flex-end;
-    font-size: 10px;
-    grid-row: 10/11;
-    grid-column: 10/11;
-    align-self: flex-end;
-    justify-self: flex-end;
-}
 
 
 button{
